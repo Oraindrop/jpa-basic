@@ -1,4 +1,4 @@
-package hellojpa;
+package jpabook.jpashop;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,17 +12,10 @@ public class JpaMain {
         EntityManager em = emf.createEntityManager();
 
         EntityTransaction tx = em.getTransaction();
+
         tx.begin();
 
         try {
-            Member member = new Member();
-            member.setId(1L);
-            member.setUserName("Hello");
-            member.setRoleType(RoleType.ADMIN);
-
-            em.persist(member);
-            System.out.println("============");
-
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
@@ -31,5 +24,6 @@ public class JpaMain {
         }
 
         emf.close();
+
     }
 }
